@@ -1,0 +1,9 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "tar-music-vant-ui",
+  "appid": "testAppId",
+  "setting": {
+    "es6": false,
+    "minified": false
+  }
+}
