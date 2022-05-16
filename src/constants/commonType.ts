@@ -54,7 +54,7 @@ export type songType = {
   // 是否正在播放
   isPlaying: boolean
   // 推荐歌单
-  recommendPlayList: Array<{}>
+  recommendPlayList: Array<{} | any>
   // 推荐歌单
   recommendDj: Array<{}>
   // 推荐新音乐

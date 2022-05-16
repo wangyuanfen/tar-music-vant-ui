@@ -174,7 +174,6 @@ class Page extends Component {
     })
   }
 
-
   setSongInfo(songInfo) {
     try {
       const { name, al, url, lrcInfo } = songInfo

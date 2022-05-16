@@ -12,7 +12,7 @@ const Page: FC = () => {
         uid: userId,
       })
       .then((res) => {
-        // console.log('event =>', res)
+        console.log('event =>', res)
       })
   }, [])
   return <View className='template_container'></View>

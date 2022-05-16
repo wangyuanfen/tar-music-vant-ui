@@ -15,13 +15,6 @@ type userList = Array<{
 }>
 
 const Page: FC = () => {
-  const [userId] = useState<number>(Taro.getStorageSync('userId'))
-  const [userList, setUserList] = useState<userList>([])
-  const [hasMore, setHasMore] = useState<boolean>(true)
-  useEffect(() => {
-    getFollowedList()
-  }, [])
-
   function getFollowedList() {
     if (!hasMore) return
     api
@@ -41,10 +34,14 @@ const Page: FC = () => {
       title: '详情页面正在开发中，敬请期待',
       icon: 'none',
     })
-    // Taro.navigateTo({
-    //   url: `/pages/user/index?id=${id}`
-    // })
   }
+
+  const [userId] = useState<number>(Taro.getStorageSync('userId'))
+  const [userList, setUserList] = useState<userList>([])
+  const [hasMore, setHasMore] = useState<boolean>(true)
+  useEffect(() => {
+    getFollowedList()
+  }, [])
 
   return (
     <View className='my_fans_container'>

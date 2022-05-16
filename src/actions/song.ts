@@ -131,19 +131,21 @@ export const getSongInfo = (payload) => {
           .get('/song/url', {
             id,
           })
-          .then((res) => {
-            songInfo.url = res.data.data[0].url
+          .then((res1) => {
+            songInfo.url = res1.data.data[0].url
             api
               .get('/lyric', {
                 id,
               })
-              .then((res) => {
+              .then((res2) => {
                 const lrc = parse_lrc(
-                  res.data.lrc && res.data.lrc.lyric ? res.data.lrc.lyric : ''
+                  res2.data.lrc && res2.data.lrc.lyric
+                    ? res2.data.lrc.lyric
+                    : ''
                 )
-                res.data.lrclist = lrc.now_lrc
-                res.data.scroll = lrc.scroll ? 1 : 0
-                songInfo.lrcInfo = res.data
+                res2.data.lrclist = lrc.now_lrc
+                res2.data.scroll = lrc.scroll ? 1 : 0
+                songInfo.lrcInfo = res2.data
                 dispatch({
                   type: GETSONGINFO,
                   payload: {
@@ -152,7 +154,7 @@ export const getSongInfo = (payload) => {
                 })
               })
               .catch((err) => {
-                // console.log('获取歌词失败', err)
+                console.log('获取歌词失败', err)
                 dispatch({
                   type: GETSONGINFO,
                   payload: {
@@ -162,7 +164,7 @@ export const getSongInfo = (payload) => {
               })
           })
           .catch((err) => {
-            // console.log('获取歌曲url失败', err)
+            console.log('获取歌曲url失败', err)
             dispatch({
               type: GETSONGINFO,
               payload: {

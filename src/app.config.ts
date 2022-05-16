@@ -12,7 +12,6 @@ export default defineAppConfig({
       root: 'pages/packageA',
       pages: [
         'pages/videoDetail/index',
-        'pages/djprogramListDetail/index',
         'pages/search/index',
         'pages/searchResult/index',
         'pages/songDetail/index',

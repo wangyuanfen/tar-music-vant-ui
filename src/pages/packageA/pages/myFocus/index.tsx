@@ -15,14 +15,6 @@ type userList = Array<{
 }>
 
 const Page: FC = () => {
-  const [userId] = useState<number>(Taro.getStorageSync('userId'))
-  const [userList, setUserList] = useState<userList>([])
-  const [hasMore, setHasMore] = useState<boolean>(true)
-
-  useEffect(() => {
-    getFollowList()
-  }, [])
-
   function goUserDetail() {
     Taro.showToast({
       title: '详情页面正在开发中，敬请期待',
@@ -47,6 +39,14 @@ const Page: FC = () => {
         setHasMore(res.data.more)
       })
   }
+
+  const [userId] = useState<number>(Taro.getStorageSync('userId'))
+  const [userList, setUserList] = useState<userList>([])
+  const [hasMore, setHasMore] = useState<boolean>(true)
+
+  useEffect(() => {
+    getFollowList()
+  }, [])
 
   return (
     <View className='my_focus_container'>

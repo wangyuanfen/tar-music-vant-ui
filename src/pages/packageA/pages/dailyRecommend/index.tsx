@@ -1,35 +1,9 @@
-import { Component } from 'react'
+import { FC } from 'react'
 import { View } from '@tarojs/components'
-import api from '../../../../services/api'
 import './index.less'
 
-type PageState = {}
-
-class Page extends Component<{}, PageState> {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-
-  componentWillMount() {
-    this.getList()
-  }
-
-  componentWillUnmount() {}
-
-  componentDidShow() {}
-
-  componentDidHide() {}
-
-  getList() {
-    api.get('/recommend/songs').then(({ data }) => {
-      // console.log('songs =》', data)
-    })
-  }
-
-  render() {
-    return <View className='daily_recommend_container'>每日推荐</View>
-  }
+const Page: FC = () => {
+  return <View className='daily_recommend_container'>每日推荐</View>
 }
 
 // #region 导出注意

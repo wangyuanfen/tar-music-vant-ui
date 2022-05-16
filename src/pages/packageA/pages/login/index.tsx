@@ -9,9 +9,6 @@ import './index.less'
 type InputType = 'phone' | 'password'
 
 const Page: FC = () => {
-  const [phone, setPhone] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
-
   function loginStatus(res) {
     const { code } = res.data
     let tipText = '登录成功'
@@ -71,6 +68,9 @@ const Page: FC = () => {
       setPassword(value)
     }
   }
+
+  const [phone, setPhone] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
 
   return (
     <View className='login_container'>
